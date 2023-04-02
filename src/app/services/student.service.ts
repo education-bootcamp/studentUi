@@ -27,4 +27,16 @@ export class StudentService {
     return this.httpService.delete(this.baseUrl+'students?id='+id);
   }
 
+  updateStudent(name: string, address: string, salary: number, id: string): Observable<any> {
+    return this.httpService.put(this.baseUrl + 'students?id='+id, {
+      name:name,
+      address,
+      salary
+    });
+  }
+
+  findAllStudents(page:any, size:any):Observable<any>{
+    return this.httpService.get(this.baseUrl+'students/list?page='+page+'&size='+size);
+  }
+
 }
