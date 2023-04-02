@@ -1,1 +1,29 @@
-<p>save-student works!</p>
+<form [formGroup]="form" (ngSubmit)="saveStudent()">
+<div class="container">
+  <h1>Save Student</h1>
+  <hr>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="form-group">
+        <input formControlName="name" type="text" placeholder="Student Name" class="form-control">
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="form-group">
+        <input formControlName="address" type="text" placeholder="Student Address" class="form-control">
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="form-group">
+        <input formControlName="salary" type="number" placeholder="Student Salary" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <p style="text-align: right">
+        <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Save Student</button>
+      </p>
+    </div>
+  </div>
+</div>
+</form>
+
