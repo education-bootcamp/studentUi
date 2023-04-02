@@ -20,5 +20,11 @@ export class StudentService {
       salary
     });
   }
+  findStudent(id:string):Observable<any>{
+    return this.httpService.get(this.baseUrl+'students/'+id);
+  }
+  deleteStudent(id:string):Observable<any>{
+    return this.httpService.delete(this.baseUrl+'students?id='+id);
+  }
 
 }
