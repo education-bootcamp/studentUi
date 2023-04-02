@@ -1,12 +1,16 @@
-
 <div class="container">
   <h1>Search All Students</h1>
   <hr>
   <div class="row">
     <div class="col-12">
-      <div class="form-group">
-        <input type="search" placeholder="Search here" class="form-control">
-      </div>
+      <form [formGroup]="search">
+        <div class="form-group">
+          <input type="search"
+                 formControlName="text"
+                 placeholder="Search here"
+                 class="form-control">
+        </div>
+      </form>
     </div>
   </div>
   <br>
@@ -20,7 +24,24 @@
       <th>Salary</th>
     </tr>
     </thead>
+    <tbody>
+    <tr *ngFor="let data of studentsArray; index as num">
+      <td>{{num + 1}}</td>
+      <td>{{data.studentId}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.address}}</td>
+      <td>{{data.salary}}</td>
+    </tr>
+    </tbody>
   </table>
+  <br>
+  <mat-paginator [length]=studentCount
+                 [pageSize]=size
+                 [pageIndex]=page
+                 [pageSizeOptions]=options
+                 (page)="pageEvent = getServerData($event)"
+                 aria-label="Select page">
+  </mat-paginator>
 </div>
 
 

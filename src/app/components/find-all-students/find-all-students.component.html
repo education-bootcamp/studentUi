@@ -21,5 +21,13 @@
     </tr>
     </tbody>
   </table>
+  <br>
+  <mat-paginator [length]=studentCount
+                 [pageSize]=size
+                 [pageIndex]=page
+                 [pageSizeOptions]=options
+                 (page)="pageEvent = getServerData($event)"
+                 aria-label="Select page">
+  </mat-paginator>
 </div>
 

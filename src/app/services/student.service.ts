@@ -38,5 +38,8 @@ export class StudentService {
   findAllStudents(page:any, size:any):Observable<any>{
     return this.httpService.get(this.baseUrl+'students/list?page='+page+'&size='+size);
   }
+  searchAllStudents(page:any, size:any, text:string):Observable<any>{
+    return this.httpService.get(this.baseUrl+'students/search?page='+page+'&size='+size+'&text='+text);
+  }
 
 }
